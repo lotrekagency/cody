@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'huey.contrib.djhuey',
     'rest_framework',
     'core',
     'api'
@@ -121,3 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+from huey import RedisHuey
+from redis import ConnectionPool
+
+pool = ConnectionPool(host='localhost', port=6379, max_connections=20)
+HUEY = RedisHuey('cody', connection_pool=pool)
