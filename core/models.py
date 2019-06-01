@@ -15,9 +15,13 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+    @classmethod
+    def generate_token(cls):
+        return secrets.token_urlsafe(48)
+
     def save(self, *args, **kwargs):
         if not self.token:
-            self.token = secrets.token_urlsafe(48)
+            self.token = Project.generate_token()
         self.slug = slugify(self.name)
         super(Project, self).save(*args, **kwargs)
 
