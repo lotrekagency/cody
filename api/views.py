@@ -21,10 +21,15 @@ class ProjectsViewSet(viewsets.ViewSet):
         except Project.DoesNotExist:
             raise Http404
 
-    @detail_route(methods=["get"])
+    def _check_header(self, request, project):
+        if 'Auth ' + project.token != request.META.get('HTTP_PROJECTTOKEN', None):
+            raise Http404
+
+    @detail_route(methods=["post"])
     def execute(self, request, pk):
         project = self.get_object(pk)
-        action = request.GET.get('action', None)
+        action = request.data.get('action', None)
+        self._check_header(request, project)
         if action:
             actions = [Action.objects.get(project=project, endpoint=action)]
             response = {'result' : f'Executing action {action} on project {pk}'}

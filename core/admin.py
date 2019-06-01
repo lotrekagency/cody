@@ -12,7 +12,7 @@ class ProjectAdmin(admin.ModelAdmin):
     ]
     filter_horizontal = ('users',)
     search_fields = ['name', 'slug']
-    list_display = ['name', 'slug']
-    readonly_fields = ('slug',)
+    list_display = ['name', 'slug', 'token']
+    readonly_fields = ('slug', 'token')
 
 admin.site.register(Project, ProjectAdmin)
