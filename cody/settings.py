@@ -135,6 +135,10 @@ pool = ConnectionPool(host='localhost', port=6379, max_connections=20)
 HUEY = RedisHuey('cody', connection_pool=pool)
 
 CUSTOM_PANEL_SETTINGS = {
+    'app_order' : [
+        'core',
+        'auth'
+    ],
     'main_color' : '#222225',
     'second_color' : '#484850',
 }

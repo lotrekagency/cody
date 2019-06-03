@@ -3,7 +3,8 @@
 */
 
 #header .logo {
-    height: 40px;
+    margin-top: 10px;
+    height: 50px;
 }
 
 @import url(fonts.css);
@@ -872,6 +873,7 @@ table#change-history tbody th {
 }
 
 #user-tools {
+    color: white;
     float: right;
     padding: 0;
     margin: 0 0 0 20px;

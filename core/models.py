@@ -9,7 +9,7 @@ class Project(models.Model):
     name = models.CharField(max_length=250)
     workspace = models.CharField(max_length=250, blank=True, null=True)
     slug = models.SlugField(max_length=250, unique=True)
-    users = models.ManyToManyField(User, blank=True)
+    users = models.ManyToManyField(User, blank=True, verbose_name='Users to notify')
     token = models.CharField(max_length=48)
 
     def __str__(self):
@@ -30,7 +30,7 @@ class Action(models.Model):
 
     name = models.CharField(max_length=250)
     endpoint = models.CharField(max_length=250)
-    script = models.TextField(blank=True, null=True)
+    script = models.TextField(blank=True, null=True, verbose_name='Script to execute')
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
 
     class Meta:

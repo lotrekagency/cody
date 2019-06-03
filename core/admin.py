@@ -2,6 +2,9 @@ from django.contrib import admin
 from .models import Project, Action
 
 
+admin.site.index_title = 'Welcome to Cody'
+
+
 def regenerate_token(modeladmin, request, queryset):
     queryset.update(token=Project.generate_token())
 

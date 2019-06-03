@@ -7,7 +7,7 @@
     <!--<img src="{% static '/img/logoblack.png' %}" width="150">-->
 </div>
 {% if app_list %}
-    {% for app in app_list %}
+    {% for app in app_list|sort_apps  %}
         <div class="app-{{ app.app_label }} module">
         <table style="">
         <caption>
