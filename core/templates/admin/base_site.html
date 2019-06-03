@@ -1,0 +1,35 @@
+{% extends "admin/base.html" %}
+{% load static admin_tags %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<img src='{% static "admin/img/logo.png" %}' class='logo'/>
+
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block bodyclass %}flat-theme{% endblock %}
+
+{% block blockbots %}
+  {{ block.super }}
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static "admin/css/custom/base.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "admin/css/custom/responsive.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "admin/css/custom/responsive_rtl.css" %}" />
+  <style>
+	{% if request.user.is_superuser %}
+  :root {
+	    --main-color: #ccd857;
+	    --second-color: black;
+	}
+  {% else %}
+  :root {
+      --main-color: {% main_color %};
+      --second-color: {% second_color %};
+  }
+  {% endif %}
+  </style>
+
+{% endblock %}
