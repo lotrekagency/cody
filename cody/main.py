@@ -33,7 +33,7 @@ def __locked_pidfile(filename):
 def main():
     current_config = read_config()
     parser = argparse.ArgumentParser()
-    parser.add_argument("action", choices=["start", "stop"])
+    parser.add_argument("action", choices=["start", "stop", "showconfig"])
     args = parser.parse_args()
     pidfile = os.path.join(
         str(Path.home()),
@@ -55,3 +55,9 @@ def main():
             pid = int(p.read())
             os.kill(pid, signal.SIGTERM)
         print ("🛑 Bye bye Cody!")
+    if args.action == "showconfig":
+        if not current_config:
+            print ("📭 Configuration is empty!")
+        else:
+            print ("Your project path is ", current_config['project_path'])
+            print ("Your token is ", current_config['token'])

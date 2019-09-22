@@ -42,3 +42,17 @@ Stop Cody
 ::
 
     cody stop
+
+Show configuration
+------------------
+
+::
+
+    cody showconfig
+
+It returns the current configuration
+
+::
+
+    Your project path is  .
+    Your token is  decfFMB1QQtVDT7WxLhF5B4ySJ5SXkQo
