@@ -9,4 +9,4 @@ def main():
     if not current_config:
         project_path = input("🏡 Insert the project path: ")
         write_config(project_path)
-    run(server='gunicorn', host='localhost', port=11001)
+    run(server='gunicorn', host='0.0.0.0', port=11001)
