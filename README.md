@@ -18,4 +18,4 @@ Ensure you have `cody.sh` script file inside your project where you define your 
 
 After configuration, try to execute a deploy
 
-    curl -d '{"token":"MY_PROJECT_TOKEN"}' -H "Content-Type: application/json" -X POST http://localhost:8000/api/deploy
+    curl -d '{"token":"MY_PROJECT_TOKEN"}' -H "Content-Type: application/json" -X POST http://localhost:11001/api/deploy
