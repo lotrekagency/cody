@@ -15,7 +15,11 @@ setup(
     author="Lotrèk",
     author_email="dimmitutto@lotrek.it",
     packages=find_packages(),
-    include_package_data=True,
+    entry_points = {
+        'console_scripts': [
+            'cody = cody.main:main',
+        ],
+    },
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
