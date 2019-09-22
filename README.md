@@ -1,7 +1,21 @@
 # Cody
 
-Execute your orders via API
+Cody is a lightweight microservice that you can install on your machines to automate deploy requests with a simple POST request!
+
+## Installation
+
+    pip install cody
+
+## Run
+
+    cody start
 
 ## Give it a try
 
-    curl --header "ProjectToken: Auth dxJM0Yjmbo6QJmYYAVMWQwvgIyDFi2OFn4heexWQZ675NILqw9UmqL5MVA4CL_RD" -d '{"action":"deploy"}' -H "Content-Type: application/json" -X POST http://localhost:8000/api/projects/oknoplast/execute/
+Ensure you have `cody.sh` script file inside your project where you define your CD instructions! Then run `Cody` using
+
+    cody start
+
+After configuration, try to execute a deploy
+
+    curl -d '{"token":"MY_PROJECT_TOKEN"}' -H "Content-Type: application/json" -X POST http://localhost:8000/api/deploy

@@ -1,4 +1,2 @@
-Django==2.2.1
-djangorestframework==3.9.4
-huey==2.0.1
-redis==3.2.1
+bottle==0.12.17
+gunicorn==19.9.0
