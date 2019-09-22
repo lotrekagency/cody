@@ -14,10 +14,14 @@ Ensure you have port `11001` open
 
 Ensure you have `cody.sh` script file inside your project where you define your CD instructions! Then run `Cody` using
 
-## Start cody
+## Start Cody
 
     cody start
 
 After configuration, try to execute a deploy
 
     curl -d '{"token":"MY_PROJECT_TOKEN"}' -H "Content-Type: application/json" -X POST http://localhost:11001/api/deploy
+
+## Stop Cody
+
+    cody stop

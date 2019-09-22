@@ -7,7 +7,9 @@ setup(
     url='https://github.com/lotrekagency/cody',
     install_requires=[
         'bottle==0.12.17',
-        'gunicorn==19.9.0'
+        'gunicorn==19.9.0',
+        'python-daemon',
+        'lockfile'
     ],
     description="Cody is a lightweight microservice that you can install on your machines to automate deploy requests with a simple POST request!",
     long_description=open('README.rst').read(),
