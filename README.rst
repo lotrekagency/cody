@@ -11,18 +11,20 @@ Installation
 
     pip install cody
 
-Run
----
+Before starting
+---------------
+
+Ensure you have port ``11001`` open
 
 ::
 
-    cody start
-
-Give it a try
--------------
+    ufw allow 11001
 
 Ensure you have ``cody.sh`` script file inside your project where you
 define your CD instructions! Then run ``Cody`` using
+
+Start cody
+----------
 
 ::
 
