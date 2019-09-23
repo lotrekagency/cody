@@ -25,13 +25,17 @@ def read():
         return json.loads(config_file.read())
 
 
-def write(project_path):
+def write(project_name, project_path, slack_hook):
     token = generate_token()
     with open(CONFIG_FILE, 'w') as config_file:
         config_file.write(json.dumps({
+            'project_name': project_name,
             'project_path' : project_path,
-            'token' : token
+            'token' : token,
+            'slack_hook': slack_hook
         }, sort_keys=True, indent=4))
     print ("Configuration is finished! 🎉")
+    print ("Your project name is ", project_name)
     print ("Your project path is ", project_path)
     print ("Your token is ", token)
+    print ("Your Slack hook is ", slack_hook)

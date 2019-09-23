@@ -20,7 +20,7 @@ Ensure you have `cody.sh` script file inside your project where you define your 
 
 After configuration, try to execute a deploy
 
-    curl -d '{"token":"MY_PROJECT_TOKEN"}' -H "Content-Type: application/json" -X POST http://localhost:11001/api/deploy
+    curl -H "X-Gitlab-Token: MY_PROJECT_TOKEN" -X POST http://localhost:11001/api/deploy
 
 ## Stop Cody
 

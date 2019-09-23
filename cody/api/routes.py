@@ -10,7 +10,11 @@ def deploy():
     try:
         current_config = read_config()
         if request.headers.get('X-Gitlab-Token') == current_config['token']:
-            deploy_app(current_config['project_path'])
+            deploy_app(
+                current_config['project_name'],
+                current_config['project_path'],
+                current_config['slack_hook']
+            )
             return "Deploy Started"
         else:
             return "Wrong Token"

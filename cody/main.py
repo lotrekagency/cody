@@ -10,7 +10,6 @@ from cody.api import *
 from contextlib import contextmanager
 from pathlib import Path
 
-from .shell import execute_commands
 
 @contextmanager
 def __locked_pidfile(filename):
@@ -39,14 +38,16 @@ def main():
     if args.action == "start":
         if not current_config:
             print ("🦊 Welcome to Cody!")
+            project_name = input("🚧 Insert the project name: ")
             project_path = input("🏡 Insert the project path: ")
-            write_config(project_path)
+            slack_hook = input ("💬 Insert your Slack hook: ")
+            write_config(project_name, project_path, slack_hook)
         bottle_context = daemon.DaemonContext(
             pidfile=__locked_pidfile(pidfile)
         )
         print ("🕰  Preparing cron tasks...")
         os.system(
-            "huey_consumer.py cody.huey --logfile={0} &> /dev/null & echo $! > {1}".format(
+            "huey_consumer.py cody.huey --logfile={0}&> /dev/null & echo $! > {1}".format(
                 huey_log_file, huey_pid_file
             )
         )
@@ -61,12 +62,14 @@ def main():
         with open(huey_pid_file, "r") as p:
             pid = int(p.read())
             os.kill(pid, signal.SIGTERM)
-        print ("🛑 Bye bye Cody!")
+        print ("🎈 Bye bye Cody!")
 
     if args.action == "showconfig":
         print ("🦊 Cody configuration")
         if not current_config:
             print ("📭 Configuration is empty!")
         else:
+            print ("Project name:", current_config['project_name'])
             print ("Project path:", current_config['project_path'])
             print ("Token:", current_config['token'])
+            print ("Slack hook:", current_config['slack_hook'])
