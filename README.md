@@ -1,6 +1,6 @@
 # Cody
 
-Cody is a lightweight microservice that you can install on your machines to automate deploy requests with a simple POST request!
+Cody is a lightweight microservice that you can install on your machines to automate deploy requests with a simple POST request using Gitlab 🦊!
 
 ## Installation
 

@@ -6,7 +6,11 @@ import string
 from pathlib import Path
 
 
-CONFIG_FILE = os.path.join(str(Path.home()), '.cody')
+CODY_FOLDER = os.path.join(str(Path.home()), '.cody')
+
+os.makedirs(CODY_FOLDER, exist_ok=True)
+
+CONFIG_FILE = os.path.join(CODY_FOLDER, '.cody')
 
 
 def generate_token():

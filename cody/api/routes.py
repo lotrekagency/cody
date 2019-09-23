@@ -1,16 +1,18 @@
 import json
 from bottle import post, request
+
 from cody.config import read as read_config
+from cody.tasks import deploy_app
 
 
 @post('/api/deploy')
 def deploy():
     try:
-        data = request.json
         current_config = read_config()
-        if data['token'] == current_config['token']:
-            return "OK"
+        if request.headers.get('X-Gitlab-Token') == current_config['token']:
+            deploy_app(current_config['project_path'])
+            return "Deploy Started"
         else:
-            return "WRONG TOKEN"
+            return "Wrong Token"
     except json.decoder.JSONDecodeError:
         pass

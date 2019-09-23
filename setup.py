@@ -9,9 +9,10 @@ setup(
         'bottle==0.12.17',
         'gunicorn==19.9.0',
         'python-daemon',
-        'lockfile'
+        'lockfile',
+        'huey==2.1.2'
     ],
-    description="Cody is a lightweight microservice that you can install on your machines to automate deploy requests with a simple POST request!",
+    description="Cody is a lightweight microservice that you can install on your machines to automate deploy requests with a simple POST request using Gitlab!",
     long_description=open('README.rst').read(),
     license="MIT",
     author="Lotrèk",
