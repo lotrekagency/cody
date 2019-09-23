@@ -1,15 +1,16 @@
 Cody
 ====
 
-Cody is a lightweight microservice that you can install on your machines
-to automate deploy requests with a simple POST request!
+Cody is our lightweight microservice that you can install on your
+machines to automate deploy with a simple POST request using Gitlab 🦊!
+You'll receive the results on Slack
 
 Installation
 ------------
 
 ::
 
-    pip install cody
+    pip install cody (WIP, use repo url)
 
 Before starting
 ---------------
@@ -34,7 +35,7 @@ After configuration, try to execute a deploy
 
 ::
 
-    curl -d '{"token":"MY_PROJECT_TOKEN"}' -H "Content-Type: application/json" -X POST http://localhost:11001/api/deploy
+    curl -H "X-Gitlab-Token: MY_PROJECT_TOKEN" -X POST http://localhost:11001/api/deploy
 
 Stop Cody
 ---------
@@ -54,5 +55,7 @@ It returns the current configuration
 
 ::
 
-    Your project path is  .
-    Your token is  decfFMB1QQtVDT7WxLhF5B4ySJ5SXkQo
+    Project name: Projectname
+    Project path: /var/www/lotrek/myproject
+    Token: f4k3t0k3n3v3rywH3r3
+    Slack hook: https://hooks.slack.com/F4k3/W3BH00k
