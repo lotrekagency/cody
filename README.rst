@@ -10,7 +10,7 @@ Installation
 
 ::
 
-    pip install cody (WIP, use repo url)
+    pip install codycd
 
 Before starting
 ---------------

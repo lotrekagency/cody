@@ -33,7 +33,7 @@ media/
 #Build
 dist/
 build/
-cody.egg-info/
+codycd.egg-info/
 
 env.sh
 test.json

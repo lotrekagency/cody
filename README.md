@@ -4,7 +4,7 @@ Cody is our lightweight microservice that you can install on your machines to au
 
 ## Installation
 
-    pip install cody (WIP, use repo url)
+    pip install codycd
 
 ## Before starting
 
