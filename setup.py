@@ -6,7 +6,7 @@ setup(
     version='0.2.0',
     url='https://github.com/lotrekagency/cody',
     install_requires=[
-        'bottle==0.12.17',
+        'bottle==0.12.19',
         'gunicorn==19.9.0',
         'python-daemon',
         'lockfile',
