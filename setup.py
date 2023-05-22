@@ -11,7 +11,7 @@ setup(
         'python-daemon',
         'lockfile',
         'huey==2.1.2',
-        'requests==2.22.0'
+        'requests==2.31.0'
     ],
     description="Cody is a lightweight microservice that you can install on your machines to automate deploy requests with a simple POST request using Gitlab!",
     long_description=open('README.rst').read(),
